@@ -173,7 +173,10 @@ aside{
 .widget-cols>li{
 	width: 220px;
 	float: left;
-	margin-right: 20px;
+	margin-left: 20px;
+}
+.widget-cols > li:first-child {
+	margin-left: 0;
 }
 
 .widget-cols>li.fourth-col{

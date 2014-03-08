@@ -88,6 +88,7 @@ add_image_size('post-slider', 620, 305, true);
 add_image_size('post-projeto', 220, 137, true);
 add_image_size('post-projeto-big', 300, 168, true);
 add_image_size('post-mini', 300, 168, true);
+add_image_size('post-widget-mini', 54,54, true);
 
 add_theme_support('post-thumbnails');
 add_theme_support('menus');
@@ -121,6 +122,12 @@ function zeniwp_fn_twitter( $atts, $content ) {
 
 } 
 
+/***** Criando Widgets *****/
+include_once( get_template_directory() . '/inc/widgets/widget_recent_posts.php' );
+add_action('widgets_init', 'zeniwp_register_widgets');
+function zeniwp_register_widgets() {
+	register_widget( 'Zeniwp_Widget_Recent_Posts' );
+}
 register_sidebar( 
 	array(	
 		'name' => 'Barra Lateral',
@@ -134,7 +141,9 @@ register_sidebar(
 register_sidebar(
 	array(
 		'name' => 'Widgets Topo',
-		'id' => 'widgets-topo'
+		'id' => 'widgets-topo',
+		'before_title' => '<h4>',
+		'after_title' => '</h4>'
 	)
 );
 
@@ -146,3 +155,94 @@ register_sidebar(
 		'after_title' => '</h4>'
 	)
 );
+
+add_action( 'customize_register', 'zeniwp_customize_register' );
+
+function zeniwp_customize_register( $wp_customize ) {
+
+	$wp_customize->add_section(
+		'slider_text',
+		array(
+			'title' => 'Texto do Slider',
+			'capability' => 'edit_theme_options',
+			'priority' => 25,
+			'description' => 'Permite você configurar o texto que deverá aparecer ao lado do slider'
+		)
+	);
+	$wp_customize->add_setting(
+		'slider_textbox_title',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+
+	$wp_customize->add_control(
+	    'slider_textbox_title',
+	    array(
+	        'label' => 'Título',
+	        'section' => 'slider_text',
+	        'type' => 'text',
+	    )
+	);
+	$wp_customize->add_setting(
+		'slider_textbox_desc',
+		// Arguments array
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	
+	$wp_customize->add_control(
+	    'slider_textbox_desc',
+	    array(
+	        'label' => 'Descrição',
+	        'section' => 'slider_text',
+	        'type' => 'text',
+	    )
+	);
+}
+
+// ACF
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_metabox-teste',
+		'title' => 'Metabox - Teste',
+		'fields' => array (
+			array (
+				'key' => 'field_531b392ea615f',
+				'label' => 'URL do projeto',
+				'name' => 'url_do_projeto',
+				'type' => 'text',
+				'instructions' => 'Insira a url do projeto',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => 'http://',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'projects',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}

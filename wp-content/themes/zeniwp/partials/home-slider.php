@@ -33,9 +33,8 @@
 	
 	<!-- Headline -->
 	<div id="headline">
-		<h1>RESPONSIVE, FREE AND SLEEK</h1>
-		<p>Zeni is a FREE Responsive HTML 5 Template.</p>
-		<p>Visit my <a href="http://www.luiszuno.com">site</a> for more freebies</p>
+		<h1><?php echo get_option( 'slider_textbox_title'); ?></h1>
+		<p><?php echo get_option( 'slider_textbox_desc'); ?></p>
 		<em id="corner"></em>
 	</div>
 	<!-- ENDS headline -->

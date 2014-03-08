@@ -34,6 +34,9 @@
 		<?php if ( 'projects' == get_post_type() ) : ?>
 		<div class="categories">Habilidades: <?php the_terms( get_the_ID(), 'projects-tags'); ?></div>
 		<?php endif; ?>
+		<?php if ( 'projects' == get_post_type() && get_field('url_do_projeto') ) : ?>
+			<div class="categories" >Url: <a href="http://<?php echo get_field('url_do_projeto'); ?>"><?php the_title(); ?></a></div>
+		<?php endif; ?>
 	</div>
 
 	<?php if ( 'post' == get_post_type() && is_single() ) : ?>
