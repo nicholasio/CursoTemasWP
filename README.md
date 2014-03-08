@@ -7,6 +7,8 @@ Desenvolvendo Temas Para Worpress
 - Wordpress >= 3.4
 - Versão do Wordpress usada no curso: 3.8.1
 
+## Atenção ##
+O Html está dentro em wp-content/themes/zeniwp
 
 ## Instalação ##
 >  `git clone https://github.com/nicholasio/CursoTemasWP.git`
