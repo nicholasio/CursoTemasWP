@@ -1,0 +1,14 @@
+/*
+	Theme Name: Tema A | Desenvolvendo Temas Para Wordpress
+	Theme URI: http://pensewordpress.com.br
+	Author: Nícholas André
+	Author URI: http://nicholasandre.com.br
+	Description: Descrição do tema
+	Version: 1.0
+*/
+
+h2 { color: red; }
+
+div.template-teste {
+	background: red;
+}
