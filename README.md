@@ -19,6 +19,6 @@ O Html está dentro em wp-content/themes/zeniwp
 
 Depos, basta configurar os dados de acesso ao banco e instalar o wordpress.
 Para importar o xml instale o plugin wordpress-importer
->  `wp plugin install wordpress-importer>`
+>  `wp plugin install wordpress-importer`
 
 
