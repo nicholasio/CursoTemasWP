@@ -59,12 +59,12 @@
 			
 			
 			<div class="footer-bottom">
-				<div class="left">Created by <a href="http://www.luiszuno.com" >luiszuno.com</a></div>
+				<div class="left"><?php echo get_option('footer_textbox_desc'); ?></div>
 				<div class="right">
 					<ul id="social-bar">
-						<li><a href="http://www.facebook.com/pages/Ansimuz/224538697564461"  title="Become a fan" class="poshytip"><img src="<?php bloginfo('template_url'); ?>/img/social/facebook.png"  alt="Facebook" /></a></li>
-						<li><a href="https://twitter.com/ansimuz" title="Follow my tweets" class="poshytip"><img src="<?php bloginfo('template_url'); ?>/img/social/twitter.png"  alt="twitter" /></a></li>
-						<li><a href="https://plus.google.com/109030791898417339180/posts"  title="Add to the circle" class="poshytip"><img src="<?php bloginfo('template_url'); ?>/img/social/plus.png" alt="Google plus" /></a></li>
+						<li><a href="<?php echo get_option('social_media_facebook'); ?>"  title="Become a fan" class="poshytip"><img src="<?php bloginfo('template_url'); ?>/img/social/facebook.png"  alt="Facebook" /></a></li>
+						<li><a href="<?php echo get_option('social_media_twitter'); ?>" title="Follow my tweets" class="poshytip"><img src="<?php bloginfo('template_url'); ?>/img/social/twitter.png"  alt="twitter" /></a></li>
+						<li><a href="<?php echo get_option('social_media_google_plus'); ?>"  title="Add to the circle" class="poshytip"><img src="<?php bloginfo('template_url'); ?>/img/social/plus.png" alt="Google plus" /></a></li>
 					</ul>
 				</div>
 			</div>

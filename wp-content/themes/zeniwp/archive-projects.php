@@ -16,6 +16,14 @@
                 <?php get_template_part('partials/content', 'projects'); ?>
 
             <?php endwhile; ?>
+
+            <?php echo zeniwp_pagination(); ?>
+
+            <!-- ou -->
+            <?php 
+                /*if ( function_exists('wp_pagenavi') ) 
+                    wp_pagenavi();*/
+            ?>
             
         </div>
         <!-- ends thumbs-->

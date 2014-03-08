@@ -880,7 +880,7 @@ article .meta .user{
 
 /* PAGER ------------------------------------------------------------*/
 
-.pager{
+.pagination-wrap ul{
 	overflow: hidden;
 	display: block;
 	font-size: 11px;
@@ -888,13 +888,13 @@ article .meta .user{
 	padding-bottom: 70px;
 }
 
-.pager li{
+.pagination-wrap ul li{
 	display: block;
 	margin-right: 5px;
 	float: left;
 }
 
-.pager li a{
+.pagination-wrap ul li a, .pagination-wrap ul li span{
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -910,7 +910,10 @@ article .meta .user{
 	transition: all 0.3s ease;
 }
 
-.pager .paged{
+.pagination-wrap ul li span {
+	
+}
+.pagination-wrap ul .paged{
 	float:right;
 	font-style:italic;
 }
@@ -991,5 +994,4 @@ footer .wrapper,
 	width: 50%;
 	float: right;
 }
-
 

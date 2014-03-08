@@ -150,14 +150,14 @@ article .meta{
 
 /* PAGER ------------------------------------------------------------*/
 
-.pager li a{ color: #444; }
+.pagination-wrap ul li a{ color: #444; }
 
-.pager li:hover a{
+.pagination-wrap ul li:hover a{
 	color: #fff;
 	background: #ea4c88;
 }
 
-.pager li.active a{ 
+.pagination-wrap ul li span{ 
 	background: #444;
 	color: #fff;
 }

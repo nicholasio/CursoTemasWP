@@ -101,8 +101,6 @@ function zeniwp_excerpt_length( $length ) {
 }
 
 
-
-
 add_shortcode('zeniwp_twitter', 'zeniwp_fn_twitter');
 
 function zeniwp_fn_twitter( $atts, $content ) {
@@ -121,6 +119,51 @@ function zeniwp_fn_twitter( $atts, $content ) {
 	return "<a href='{$twitter_link}' target='_blank'>{$perfil}</a> <br />";
 
 } 
+/*
+	Baseado na função odin_pagination
+	https://github.com/nicholasio/odin/blob/master/core/helpers.php
+*/
+function zeniwp_pagination() {
+	global $wp_query, $wp_rewrite;
+
+	$total_pages = $wp_query->max_num_pages;
+
+
+	if ( $total_pages > 1 ) {
+		$current_page = max( 1, get_query_var( 'paged' ) );
+		$url_base = $wp_rewrite->pagination_base;
+		$big = 999999999; // Need an unlikely integer.
+
+		// Sets the URL format.
+		if ( $wp_rewrite->permalink_structure ) {
+			$format = '?paged=%#%';
+		} else {
+			$format = '/' . $url_base . '/%#%';
+		}
+
+		
+		$arguments =array(
+				'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+				'format' => $format,
+				'current' => $current_page,
+				'total' => $total_pages,
+				'show_all' => true,
+				'type' => 'list',
+				'prev_text' => '<<',
+				'next_text' => '>>',
+			);
+		
+
+		$pagination = '<div class="pagination-wrap">' . paginate_links( $arguments ) . '</div>';
+
+		
+		if ( $url_base ) {
+			$pagination = str_replace( '//' . $url_base . '/', '/' . $url_base . '/', $pagination );
+		}
+
+		return $pagination;
+	}
+}
 
 /***** Criando Widgets *****/
 include_once( get_template_directory() . '/inc/widgets/widget_recent_posts.php' );
@@ -188,7 +231,7 @@ function zeniwp_customize_register( $wp_customize ) {
 	);
 	$wp_customize->add_setting(
 		'slider_textbox_desc',
-		// Arguments array
+		
 		array(
 			'default' => '',
 			'type' => 'option'
@@ -202,6 +245,93 @@ function zeniwp_customize_register( $wp_customize ) {
 	        'section' => 'slider_text',
 	        'type' => 'text',
 	    )
+	);
+
+	$wp_customize->add_section(
+		'footer_text',
+		array(
+			'title' => 'Texto do rodapé',
+			'capability' => 'edit_theme_options',
+			'priority' => 35,
+			'description' => 'Permite você configurar o texto que deverá no rodapé'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'footer_textbox_desc',
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+	$wp_customize->add_control(
+		'footer_textbox_desc',
+		array(
+			'label' => 'Texto do Rodapé',
+			'section' => 'footer_text',
+			'type' => 'text'
+		)
+	);
+
+	$wp_customize->add_section(
+		'social_media',
+		array(
+			'title' => 'Links para as redes sociais',
+			'capability' => 'edit_theme_options',
+			'priority' => 45,
+			'description' => 'Permite você configurar os link para as redes sociais'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'social_media_google_plus',
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+
+	$wp_customize->add_control(
+		'social_media_google_plus',
+		array(
+			'label' => 'Link para Google +',
+			'section' => 'social_media',
+			'type' => 'text'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'social_media_twitter',
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+
+	$wp_customize->add_control(
+		'social_media_twitter',
+		array(
+			'label' => 'Link para Twitter',
+			'section' => 'social_media',
+			'type' => 'text'
+		)
+	);
+
+	$wp_customize->add_setting(
+		'social_media_facebook',
+		array(
+			'default' => '',
+			'type' => 'option'
+		)
+	);
+
+	$wp_customize->add_control(
+		'social_media_facebook',
+		array(
+			'label' => 'Link para Facebook',
+			'section' => 'social_media',
+			'type' => 'text'
+		)
 	);
 }
 
