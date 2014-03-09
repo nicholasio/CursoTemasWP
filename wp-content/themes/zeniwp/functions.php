@@ -214,7 +214,6 @@ function zeniwp_customize_register( $wp_customize ) {
 	);
 	$wp_customize->add_setting(
 		'slider_textbox_title',
-		// Arguments array
 		array(
 			'default' => '',
 			'type' => 'option'
