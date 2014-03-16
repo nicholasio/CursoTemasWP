@@ -1,11 +1,11 @@
-Desenvolvendo Temas Para Worpress
+Desenvolvendo Temas Para WordPress
 =====
 
 ## Informações ##
 - Tema: ZeniWP
 - Versão: 1.0.0
 - Wordpress >= 3.4
-- Versão do Wordpress usada no curso: 3.8.1
+- Versão do WordPress usada no curso: 3.8.1
 - Demo: http://cursowp.pensewordpress.com.br/demo
 
 ## Atenção ##
