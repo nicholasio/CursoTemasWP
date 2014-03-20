@@ -65,8 +65,8 @@ function zeniwp_enqueue_scripts() {
 	wp_enqueue_style('skin', get_stylesheet_directory_uri()        . '/css/skin.css');
 
 
-	wp_enqueue_script('css3mediaqueries', 
-			get_stylesheet_directory_uri() . '/js/css3-mediaqueries.js', array('jquery'));
+	/*wp_enqueue_script('css3mediaqueries', 
+			get_stylesheet_directory_uri() . '/js/css3-mediaqueries.js', array('jquery'));*/
 
 	wp_enqueue_script('custom', get_stylesheet_directory_uri()           . '/js/custom.js');
 
